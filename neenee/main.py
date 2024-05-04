@@ -1,4 +1,4 @@
-from neenee import cli
+from .cli import cli
 
 def main() -> None:
     cli()

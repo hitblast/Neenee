@@ -9,6 +9,8 @@ import disnake
 from disnake import CommandInter
 from disnake.ext import commands
 
+from .cli import console
+
 
 # Set up the base bot class.
 class Neenee(commands.AutoShardedInteractionBot):
@@ -51,10 +53,10 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     async def on_connect(self: Self) -> None:
         await self._update_presence()
-        print(f'\nConnected to Discord as: {self.user}')
+        console.print(f'\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]')
 
     async def on_ready(self: Self) -> None:
-        print("Flight controls OK, we're online and ready.")
+        console.print("[bold green]I'm ready! :D[/bold green]")
 
     async def on_guild_join(self: Self, _: disnake.Guild) -> None:
         await self._update_presence()
