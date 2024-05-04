@@ -1,5 +1,6 @@
 # Imports.
 import click
+from decouple import config
 from rich.console import Console
 
 
@@ -30,8 +31,11 @@ def _run() -> None:
     from neenee import build_core
     neenee = build_core()
 
-    # Run the bot.
-    neenee.run()
+    try:
+        # Run the bot.
+        neenee.run(config("DISCORD_TOKEN", cast=str))
+    except Exception as e:
+        _print_err(f"error -_- {e}")
 
 
 # Run the main function.
