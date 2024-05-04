@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+
+
 # Imports.
 from decouple import config
 from disnake import CommandInter

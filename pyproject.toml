@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+
 [tool.poetry]
 name = "neenee"
 version = "0.0.1"

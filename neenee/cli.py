@@ -1,3 +1,6 @@
+# SPDX-License-Identifier: MIT
+
+
 # Imports.
 import click
 from decouple import config
