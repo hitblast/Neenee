@@ -8,7 +8,9 @@ from rich.console import Console
 
 
 # Create a new group for putting the CLI commands.
-@click.group(help="A personal Discord bot (especially for developers), acting as both a robust testbed and a fun bot :3")
+@click.group(
+    help="A personal Discord bot (especially for developers), acting as both a robust testbed and a fun bot :3"
+)
 @click.version_option(
     package_name="Neenee",
     message="Package: %(prog)s, version %(version)s\n",
@@ -32,6 +34,7 @@ def _print_err(text: str) -> None:
 def _run() -> None:
     # Create a new instance of Neenee.
     from neenee import build_core
+
     neenee = build_core()
 
     try:

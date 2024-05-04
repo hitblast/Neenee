@@ -35,9 +35,9 @@ class Neenee(commands.AutoShardedInteractionBot):
         logger = logging.getLogger(logger_name)
         logger.setLevel(disnake.logging.DEBUG)
 
-        handler = logging.FileHandler(filename=f'logs/{file_name}', encoding='utf-8', mode='w')
+        handler = logging.FileHandler(filename=f"logs/{file_name}", encoding="utf-8", mode="w")
         handler.setFormatter(
-            disnake.logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s')
+            disnake.logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
         )
         logger.addHandler(handler)
 
@@ -50,13 +50,13 @@ class Neenee(commands.AutoShardedInteractionBot):
             status=disnake.Status.dnd,
             activity=disnake.Activity(
                 type=disnake.ActivityType.listening,
-                name=f'commands inside {len(self.guilds)} server(s)!',
+                name=f"commands inside {len(self.guilds)} server(s)!",
             ),
         )
 
     async def on_connect(self: Self) -> None:
         await self._update_presence()
-        console.print(f'\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]')
+        console.print(f"\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]")
 
     async def on_ready(self: Self) -> None:
         console.print("[bold green]I'm ready! :D[/bold green]")
@@ -73,7 +73,7 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     async def on_slash_command_error(self: Self, inter: CommandInter, error: Exception) -> None:
         traceback.print_exception(type(error), error, error.__traceback__)
-        await inter.send(f'An error occurred: {error}')
+        await inter.send(f"An error occurred: {error}")
 
 
 # Basic build_core() function for returning a new instance of Neenee.
