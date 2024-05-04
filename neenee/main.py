@@ -5,7 +5,7 @@ from rich.console import Console
 
 
 # Create a new group for putting the CLI commands.
-@click.group(help="A personal Discord bot, for developers, acting as a robust testbed")
+@click.group(help="A personal Discord bot (especially for developers), acting as both a robust testbed and a fun bot :3")
 @click.version_option(
     package_name="Neenee",
     message="Package: %(prog)s, version %(version)s\n",

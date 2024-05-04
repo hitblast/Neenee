@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "neenee"
 version = "0.0.1"
-description = "A personal Discord bot, for developers, acting as a robust testbed"
+description = "A personal Discord bot (especially for developers), acting as both a robust testbed and a fun bot :3"
 authors = ["HitBlast <hitblastlive@gmail.com>"]
 readme = "README.md"
 license = "MIT"
