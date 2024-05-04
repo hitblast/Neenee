@@ -76,6 +76,6 @@ class Neenee(commands.AutoShardedInteractionBot):
 def build_core() -> Neenee:
     return Neenee(
         initial_extensions=[
-            "cogs.general",
+            "cogs.dev",
         ],
     )
