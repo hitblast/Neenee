@@ -7,6 +7,6 @@
 <br>
 
 # Neenee
-### A personal Discord bot (especially for developers), acting as both a robust testbed and a fun bot :3
+#### An elegant & scalable Discord bot which aces in robustness (and in doing chores :D)
 
 </div>
