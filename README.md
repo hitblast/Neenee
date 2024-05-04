@@ -7,6 +7,6 @@
 <br>
 
 # Neenee
-### An elegant & scalable Discord bot which aces in robustness<br>✨ (and in doing chores :D)
+### An elegant & scalable Discord bot which aces in robustness<br>✨ (and in doing chores :D) 🪄
 
 </div>
