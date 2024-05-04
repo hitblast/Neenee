@@ -1,1 +1,1 @@
-from .bot import Core as Core
+from .bot import *

@@ -11,7 +11,11 @@ from disnake.ext import commands
 
 
 # Set up the base bot class.
-class Core(commands.AutoShardedInteractionBot):
+class Neenee(commands.AutoShardedInteractionBot):
+    """
+    The core class for Neenee, holding the required components for initializing the bot properly.
+    """
+
     def __init__(self: Self, *args: Any, initial_extensions: List[str], **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
@@ -65,3 +69,13 @@ class Core(commands.AutoShardedInteractionBot):
     async def on_slash_command_error(self: Self, inter: CommandInter, error: Exception) -> None:
         traceback.print_exception(type(error), error, error.__traceback__)
         await inter.send(f'An error occurred: {error}')
+
+
+# Basic build_core() function for returning a new instance of Neenee.
+# Note: This should be used in the main file, not in this file.
+def build_core() -> Neenee:
+    return Neenee(
+        initial_extensions=[
+            "cogs.general",
+        ],
+    )
