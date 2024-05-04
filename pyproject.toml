@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "neenee"
 version = "0.0.1"
-description = "My personal Discord bot aimed at doing chores and performing as a development ground for me"
+description = "A personal Discord bot, for developers, acting as a robust testbed"
 authors = ["HitBlast <hitblastlive@gmail.com>"]
 readme = "README.md"
 
