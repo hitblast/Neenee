@@ -35,10 +35,9 @@ def _run() -> None:
     # Create a new instance of Neenee.
     from neenee import build_core
 
-    neenee = build_core()
-
     try:
         # Run the bot.
+        neenee = build_core()
         neenee.run(config("DISCORD_TOKEN", cast=str))
     except Exception as e:
-        _print_err(f"error -_- {e}")
+        _print_err(f"error -_- \n\n{'\n  '.join(getattr(e, 'message', str(e)).split(':'))}")
