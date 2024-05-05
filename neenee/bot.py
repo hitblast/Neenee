@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import traceback
 from typing import Any, List, Self
 
@@ -34,6 +35,9 @@ class Neenee(commands.AutoShardedInteractionBot):
 
         logger = logging.getLogger(logger_name)
         logger.setLevel(disnake.logging.DEBUG)
+
+        if not os.path.exists("logs"):
+            os.makedirs("logs")
 
         handler = logging.FileHandler(filename=f"logs/{file_name}", encoding="utf-8", mode="w")
         handler.setFormatter(
