@@ -18,19 +18,18 @@
 
 ## 🔖 Table of Contents
 
-- [To-do List](#-to-do-list)
-
 - [Setup](#-setup)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
     - [Configuration](#configuration)
-
-- [Usage](#-usage)
-    - [Commands](#commands)
-
+- [To-do List](#-to-do-list)
 - [Contributing](#-contributing)
     - [Development Guide](#development-guide)
     - [Code of Conduct](#code-of-conduct)
+
+<br>
+
+## 🔨 Setup
 
 <br>
 
