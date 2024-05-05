@@ -18,7 +18,7 @@
 
 ## 🔖 Table of Contents
 
-- [Todo](#-todo)
+- [To-do List](#-to-do-list)
 
 - [Setup](#-setup)
     - [Prerequisites](#prerequisites)
@@ -34,7 +34,7 @@
 
 <br>
 
-## 📝 Todo
+## 📝 To-do List
 
 - [x] Setup project structure with [Poetry](https://python-poetry.org/)
 - [ ] Setup basic bot infrastructure:
@@ -51,4 +51,8 @@
 - [ ] Add advanced features (for now):
     - [ ] Improve the logging system and centralize it for universal access
 - [ ] Chore tasks:
-    - [ ] Improve the CLI with interactive prompts (backend is ready)
+    - [ ] Add interactive prompts / commands to CLI for easy setup
+    - [ ] Add containerization
+        - [ ] Add Docker as a build system for the bot
+        - [ ] Introduce Docker Compose
+        - [ ] Add GitHub Actions to automatically build bot contents on release, and store on ghcr.io
