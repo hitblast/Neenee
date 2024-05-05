@@ -21,11 +21,9 @@
 - [Setup](#-setup)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-    - [Configuration](#configuration)
 - [To-do List](#-to-do-list)
 - [Contributing](#-contributing)
-    - [Development Guide](#development-guide)
-    - [Code of Conduct](#code-of-conduct)
+    - [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 <br>
 
@@ -52,7 +50,7 @@
 
 3. Install dependencies using Poetry:
     ```sh
-    $ poetry install
+    $ poetry install --sync --all-extras
     ```
 
 4. Setup the required environment variables using the provided `.env.sample` file:
