@@ -47,7 +47,7 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     async def _update_presence(self: Self) -> None:
         """
-        Updates the rich presence of IgKnite.
+        Updates the rich presence.
         """
 
         await self.change_presence(
