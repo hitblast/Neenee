@@ -60,6 +60,7 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     async def on_connect(self: Self) -> None:
         await self._update_presence()
+        console.clear()
         console.print(f"\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]")
 
     async def on_ready(self: Self) -> None:
