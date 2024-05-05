@@ -31,6 +31,43 @@
 
 ## 🔨 Setup
 
+### Prerequisites
+
+- [**Python 3.12**](https://python.org/) or higher
+- **[Poetry](https://python-poetry.org/)** for managing dependencies
+- **[Git](https://git-scm.com/)** for version control
+
+### Installation
+
+1. Clone the repository and navigate to it: 
+    ```sh
+    $ git clone https://github.com/hitblast/Neenee.git && cd Neenee
+    ```
+
+2. Setup a virtual environment with Python and activate:
+    ```sh
+    $ python -m venv venv
+    $ source venv/bin/activate
+    ```
+
+3. Install dependencies using Poetry:
+    ```sh
+    $ poetry install
+    ```
+
+4. Setup the required environment variables using the provided `.env.sample` file:
+    ```sh
+    $ cp .env.sample .env
+
+    # open in your favorite text editor
+    $ nano .env
+    ```
+
+5. Voila! You're all set to run the bot:
+    ```sh
+    $ neenee run
+    ```
+
 <br>
 
 ## 📝 To-do List
