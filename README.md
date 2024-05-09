@@ -14,9 +14,12 @@
 
 </div>
 
+---
+
 > [!IMPORTANT]
 > Neenee is currently in development and not yet recommended for production use, however you can take part in shaping it's future by [submitting an issue](https://github.com/hitblast/Neenee/issues) to let us know what you think.
 
+---
 
 <br>
 
