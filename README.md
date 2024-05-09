@@ -92,3 +92,21 @@
         - [ ] Add Docker as a build system for the bot
         - [ ] Introduce Docker Compose
         - [ ] Add GitHub Actions to automatically build bot contents on release, and store on ghcr.io
+
+<br>
+
+## 🤝 Contributing
+
+New ideas, feature requests and bug reports are always welcome! Have a look at our [GitHub Issues](https://github.com/hitblast/Neenee/issues) for any open or unresolved issues.
+
+If you are a developer who is looking forward to contributing to Neenee, please refer to the [Code of Conduct](./CODE_OF_CONDUCT.md) before contributing.
+
+<br>
+
+---
+
+<div align="center">
+
+### 🌟 Star the repository if you like it! 🌟
+
+</div>
