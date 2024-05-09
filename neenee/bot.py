@@ -10,10 +10,14 @@ import traceback
 from typing import Any, List, Self
 
 import disnake
+from decouple import config
 from disnake import CommandInter
 from disnake.ext import commands
 
 from .cli import console
+
+# Required evironment variables.
+DEV_MODE = config("DEV_MODE", cast=bool, default=False)
 
 
 # Set up the base bot class.
@@ -27,23 +31,12 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     def __init__(self: Self, *args: Any, initial_extensions: List[str], **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
-
         self.logger: logging.Logger = self.add_logger(logger_name="neenee", file_name="neenee.log")
 
+        console.clear()
         for extension in initial_extensions:
+            self.log(f"Loading extension: [bold yellow]{extension}[/bold yellow]")
             self.load_extension(extension)
-
-    def log(self: Self, message: str) -> None:
-        """
-        Logs a message to the console.
-
-        Parameters:
-        - message (str): The message to log.
-        """
-
-        console.print(message)
-        plain_message = console.export_text()
-        self.logger.info(plain_message)
 
     @staticmethod
     def add_logger(*, logger_name: str, file_name: str) -> logging.Logger:
@@ -72,6 +65,18 @@ class Neenee(commands.AutoShardedInteractionBot):
 
         return logger
 
+    def log(self: Self, message: str) -> None:
+        """
+        Logs a message to the console.
+
+        Parameters:
+        - message (str): The message to log.
+        """
+
+        console.print(message)
+        plain_message = console.export_text()[:-1]
+        self.logger.info(plain_message)
+
     async def _update_presence(self: Self) -> None:
         """
         Updates the rich presence of the bot.
@@ -87,8 +92,7 @@ class Neenee(commands.AutoShardedInteractionBot):
 
     async def on_connect(self: Self) -> None:
         await self._update_presence()
-        console.clear()
-        self.log(f"\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]")
+        self.log(f"Connected to Discord as: [bold cyan]{self.user}[/bold cyan]")
 
     async def on_ready(self: Self) -> None:
         self.log("[bold green]I'm ready! :D[/bold green]")
@@ -111,8 +115,13 @@ class Neenee(commands.AutoShardedInteractionBot):
 # Basic build_core() function for returning a new instance of Neenee.
 # Note: This should be used in the main file, not in this file.
 def build_core() -> Neenee:
-    return Neenee(
-        initial_extensions=[
-            "cogs.dev",
-        ],
-    )
+    initial_extensions = [
+        "cogs.moderation",
+    ]
+
+    if DEV_MODE:
+        initial_extensions.append("cogs.dev")
+
+    instance = Neenee(initial_extensions=initial_extensions)
+    instance.log("Operating in [bold red]development mode.[/bold red]\n")
+    return instance
