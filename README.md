@@ -81,9 +81,11 @@
     - [x] Prepare a basic `dev` cog for monitoring the bot while in development
     - [ ] Decentralize the cogs system so that it can be scalable as needed
     - [ ] Implement a `moderation` cog for server moderation commands
+        - [x] Add basic moderation commands (`/kick`, `/ban`, `/unban`, etc.)
+        - [ ] Add advanced moderation commands (`/mute`, `/unmute`, `/warn`, etc.)
     - [ ] Implement a `general` cog for normal commands
-- [ ] Add advanced features (for now):
-    - [ ] Improve the logging system and centralize it for universal access
+- [x] Add advanced features (for now):
+    - [x] Improve the logging system and centralize it for universal access
 - [ ] Chore tasks:
     - [ ] Add interactive prompts / commands to CLI for easy setup
     - [ ] Add containerization
