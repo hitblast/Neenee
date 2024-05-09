@@ -14,6 +14,10 @@
 
 </div>
 
+> [!IMPORTANT]
+> Neenee is currently in development and not yet recommended for production use, however you can take part in shaping it's future by [submitting an issue](https://github.com/hitblast/Neenee/issues) to let us know what you think.
+
+
 <br>
 
 ## 🔖 Table of Contents
@@ -36,7 +40,7 @@ Neenee is a next-generation, highly scalable Discord bot aimed at moderators, de
 
 - **Scalable** - Neenee is built with a fully modular architecture that allows you to add or remove parts as needed.
 - **Robust** - The project relies on Python 3.12, the latest production version of the language.
-- **Intuitive** - Neenee can be easily configured, unlike other open-source bots, which rely on heavy configuration guides.
+- **Intuitive** - Neenee can be easily configured, unlike other bots, which rely on boring configuration guides.
 - **Creative** - Ever feel like most bots on the platform have the same features? Neenee is here to change that. With every update, we aim to bring new and exciting features to the table.
 - **Open-source** - Yeah, we absolutely <3 open source! Does that even need an explanation? :D
 
