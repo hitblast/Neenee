@@ -30,9 +30,9 @@
 
 ## ✨ Overview
 
-Neenee is a next-generation, highly scalable Discord bot aimed at moderators, developers (and people who generally love bots!) to help them manage their server, perform moderation tasks, and just have fun in general while using Discord.
+Neenee is a next-generation, highly scalable Discord bot aimed at moderators, developers (and people who generally love bots!) to help them manage their server, perform moderation tasks (while listening to music) and just have fun in general while using Discord.
 
-### Features
+### 🚀 Features
 
 - **Scalable** - Neenee is built with a fully modular architecture that allows you to add or remove parts as needed.
 - **Robust** - The project relies on Python 3.12, the latest production version of the language.
