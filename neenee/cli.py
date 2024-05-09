@@ -20,11 +20,11 @@ def cli() -> None:
 
 
 # Initialize Console object for rich-based output.
-console = Console()
+console = Console(record=True)
 
 
 # Helper functions for CLI commands.
-def _print_err(text: str) -> None:
+def print_err(text: str) -> None:
     console.print(text, style="red")
     return click.echo(err=True)
 
@@ -40,4 +40,4 @@ def _run() -> None:
         neenee = build_core()
         neenee.run(config("DISCORD_TOKEN", cast=str))
     except Exception as e:
-        _print_err(f"error -_- \n\n{'\n  '.join(getattr(e, 'message', str(e)).split(':'))}")
+        print_err(f"error -_- \n\n{'\n  '.join(getattr(e, 'message', str(e)).split(':'))}")

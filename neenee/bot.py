@@ -20,17 +20,42 @@ from .cli import console
 class Neenee(commands.AutoShardedInteractionBot):
     """
     The core class for Neenee, holding the required components for initializing the bot properly.
+
+    Parameters:
+    - initial_extensions (List[str]): A list of initial extensions to load when Neenee starts.
     """
 
     def __init__(self: Self, *args: Any, initial_extensions: List[str], **kwargs: Any) -> None:
         super().__init__(*args, **kwargs)
 
+        self.logger: logging.Logger = self.add_logger(logger_name="neenee", file_name="neenee.log")
+
         for extension in initial_extensions:
             self.load_extension(extension)
 
-    def _add_logger(self, *, logger_name: str, file_name: str) -> None:
+    def log(self: Self, message: str) -> None:
+        """
+        Logs a message to the console.
+
+        Parameters:
+        - message (str): The message to log.
+        """
+
+        console.print(message)
+        plain_message = console.export_text()
+        self.logger.info(plain_message)
+
+    @staticmethod
+    def add_logger(*, logger_name: str, file_name: str) -> logging.Logger:
         """
         Adds a logger to the bot.
+
+        Parameters:
+        - logger_name (str): The name of the logger.
+        - file_name (str): The name of the file to log to.
+
+        Returns:
+        - logging.Logger: The logger instance.
         """
 
         logger = logging.getLogger(logger_name)
@@ -45,9 +70,11 @@ class Neenee(commands.AutoShardedInteractionBot):
         )
         logger.addHandler(handler)
 
+        return logger
+
     async def _update_presence(self: Self) -> None:
         """
-        Updates the rich presence.
+        Updates the rich presence of the bot.
         """
 
         await self.change_presence(
@@ -61,10 +88,10 @@ class Neenee(commands.AutoShardedInteractionBot):
     async def on_connect(self: Self) -> None:
         await self._update_presence()
         console.clear()
-        console.print(f"\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]")
+        self.log(f"\nConnected to Discord as: [bold yellow]{self.user}[/bold yellow]")
 
     async def on_ready(self: Self) -> None:
-        console.print("[bold green]I'm ready! :D[/bold green]")
+        self.log("[bold green]I'm ready! :D[/bold green]")
 
     async def on_guild_join(self: Self, _: disnake.Guild) -> None:
         await self._update_presence()
