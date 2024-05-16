@@ -7,7 +7,7 @@ from __future__ import annotations
 import logging
 import os
 import traceback
-from typing import Any, List, Self
+from typing import Any, List, Literal, Self
 
 import disnake
 from decouple import config
@@ -63,17 +63,23 @@ class Neenee(commands.AutoShardedInteractionBot):
 
         return logger
 
-    def log(self: Self, message: str) -> None:
+    def log(self: Self, message: str, *, level: Literal["norm", "err"] = "norm") -> None:
         """
         Logs a message to the console.
 
         Parameters:
         - message (str): The message to log.
+        - level (Any): The logging level to use.
         """
 
         console.print(message)
         plain_message = console.export_text()[:-1]
-        self.logger.info(plain_message)
+
+        match level:
+            case "err":
+                self.logger.error(plain_message)
+            case _:
+                self.logger.info(plain_message)
 
     async def _update_presence(self: Self) -> None:
         """

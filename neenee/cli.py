@@ -2,6 +2,7 @@
 
 
 # Imports.
+import traceback
 
 import click
 from decouple import config
@@ -24,12 +25,6 @@ def cli() -> None:
 console = Console(record=True)
 
 
-# Helper functions for CLI commands.
-def print_err(text: str) -> None:
-    console.print(text, style="red")
-    return click.echo(err=True)
-
-
 # Create the run command which starts a new instance of Neenee.
 @cli.command("run", help="Boots up Neenee.")
 @click.option(
@@ -49,12 +44,14 @@ def _run(token: str, dev: bool) -> None:
     # Create a new instance of Neenee.
     from neenee import build_core
 
+    neenee = build_core(force_dev=dev)
+
     try:
         # Run the bot.
-        neenee = build_core(force_dev=dev)
-
         token = token or config("DISCORD_TOKEN", cast=str)
         neenee.run(token)
 
     except Exception as e:
-        print_err(f"error -_- \n\n{'\n  '.join(getattr(e, 'message', str(e)).split(':'))}")
+        # Print the error message.
+        traceback.print_exception(type(e), e, e.__traceback__)
+        neenee.log(f"[bold red]\nerror -_-\n\n{e}[/bold red]", level="err")
