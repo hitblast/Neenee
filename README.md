@@ -129,6 +129,6 @@ If you are a developer who is looking forward to contributing to Neenee, please 
 
 <div align="center">
 
-### 🌟 Star the repository if you like it! 🌟
+### 🌟 Feel free to star the repository if you like it! :D 
 
 </div>
