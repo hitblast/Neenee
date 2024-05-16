@@ -16,14 +16,12 @@ from disnake.ext import commands
 
 from .cli import console
 
-# Required evironment variables.
-DEV_MODE = config("DEV_MODE", cast=bool, default=False)
-
 
 # Set up the base bot class.
 class Neenee(commands.AutoShardedInteractionBot):
     """
-    The core class for Neenee, holding the required components for initializing the bot properly.
+    The core class for Neenee, holding the required components for initializing stuff properly.
+    It is recommended to not use this class directly, but to use the build_core() function instead.
 
     Parameters:
     - initial_extensions (List[str]): A list of initial extensions to load when Neenee starts.
@@ -114,7 +112,20 @@ class Neenee(commands.AutoShardedInteractionBot):
 
 # Basic build_core() function for returning a new instance of Neenee.
 # Note: This should be used in the main file, not in this file.
-def build_core() -> Neenee:
+def build_core(force_dev: bool = False) -> Neenee:
+    """
+    Builds a new instance of Neenee.
+
+    Parameters:
+    - force_dev (bool): Whether to force Neenee to run in development mode.
+    """
+
+    match force_dev:
+        case True:
+            DEV_MODE = True
+        case False:
+            DEV_MODE = config("DEV_MODE", cast=bool, default=False)
+
     initial_extensions = [
         "cogs.moderation",
     ]
