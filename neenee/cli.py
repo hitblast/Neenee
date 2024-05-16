@@ -2,6 +2,7 @@
 
 
 # Imports.
+
 import click
 from decouple import config
 from rich.console import Console
@@ -29,15 +30,31 @@ def print_err(text: str) -> None:
     return click.echo(err=True)
 
 
-# The main function for running the bot.
-@cli.command("run", help="Run the bot.")
-def _run() -> None:
+# Create the run command which starts a new instance of Neenee.
+@cli.command("run", help="Boots up Neenee.")
+@click.option(
+    "--token",
+    "-t",
+    type=str,
+    help="The token of the bot. If not passed, it will be fetched from the environment.",
+    required=False,
+)
+@click.option(
+    "--dev",
+    "-d",
+    is_flag=True,
+    help="Run Neenee in development mode.",
+)
+def _run(token: str, dev: bool) -> None:
     # Create a new instance of Neenee.
     from neenee import build_core
 
     try:
         # Run the bot.
-        neenee = build_core()
-        neenee.run(config("DISCORD_TOKEN", cast=str))
+        neenee = build_core(force_dev=dev)
+
+        token = token or config("DISCORD_TOKEN", cast=str)
+        neenee.run(token)
+
     except Exception as e:
         print_err(f"error -_- \n\n{'\n  '.join(getattr(e, 'message', str(e)).split(':'))}")
