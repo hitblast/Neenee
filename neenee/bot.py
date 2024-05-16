@@ -119,9 +119,13 @@ def build_core() -> Neenee:
         "cogs.moderation",
     ]
 
-    if DEV_MODE:
-        initial_extensions.append("cogs.dev")
+    instance = Neenee(
+        initial_extensions=initial_extensions
+        if not DEV_MODE
+        else (initial_extensions + ["cogs.dev"])
+    )
 
-    instance = Neenee(initial_extensions=initial_extensions)
-    instance.log("Operating in [bold red]development mode.[/bold red]\n")
+    if DEV_MODE:
+        instance.log("Operating in [bold red]development mode.[/bold red]\n")
+
     return instance
