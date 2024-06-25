@@ -20,7 +20,7 @@ click = "^8.1.7"
 python-decouple = "^3.8"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.4.9"
+ruff = "^0.4.10"
 
 [tool.poetry.scripts]
 neenee = "neenee.main:main"
